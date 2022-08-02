@@ -9,7 +9,7 @@ count = 0
 checked = 0
 
 if not os.path.isfile(warnings):
-   print('%s: file %s does not exist, exiting' % (sys.argv[0], warnings))
+   print(f'{sys.argv[0]}: file {warnings} does not exist, exiting')
    exit(0)
 
 with open('known_dialyzer_warnings') as kw:
@@ -30,7 +30,7 @@ try:
             count += 1
          checked += 1
 except Exception as e:
-    print('%s: unexpected error: %s' % (sys.argv[0], str(e)), file=sys.stderr)
+   print(f'{sys.argv[0]}: unexpected error: {str(e)}', file=sys.stderr)
 finally:
    if checked and count == 0:
       os.remove(warnings)
